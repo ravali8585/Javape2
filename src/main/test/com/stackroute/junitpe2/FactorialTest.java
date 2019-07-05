@@ -8,17 +8,7 @@ import static org.junit.Assert.*;
 
         public static Factorial factorial;
 
-        @BeforeClass
-        public static void setUp()
-        {
-            factorial = new Factorial();
-        }
 
-        @AfterClass
-        public static void tearDown()
-        {
-            factorial = null;
-        }
 
         @Test
         public void testForintFactorialSuccess()

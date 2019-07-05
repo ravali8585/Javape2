@@ -11,7 +11,7 @@ public class Palindrome {
 
             n = n / 10;
         }
-        if (rev == temp)
+        if (rev == temp)//to check palindrome or not
         {
             return  "Given Number is Palindrome";
         }

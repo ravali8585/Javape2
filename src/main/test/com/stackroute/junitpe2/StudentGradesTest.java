@@ -8,45 +8,42 @@ public class StudentGradesTest {
 
 
 
-        public static StudentGrades studentGrades;
+    StudentGrades studentGrades;
 
-        @BeforeClass
-        public static void setUp()
-        {
-            studentGrades = new StudentGrades();
-        }
+    @Before
+    public void setUp() throws Exception {
+        studentGrades=new StudentGrades();
+    }
 
-        @AfterClass
-        public static void tearDown()
-        {
-            studentGrades = null;
-        }
+    @After
+    public void tearDown() throws Exception {
+        studentGrades=null;
+    }
 
-        @Test
-        public void testForGradeCalculatorSuccess()
-        {
-            int[] grades = {80,70,60,78};
-            StudentGrades.Result result = studentGrades.calculateGrades(4,grades);
-            assertEquals(288,result.average,00);
-            assertEquals(60,result.minimun);
-            assertEquals(80,result.maximum);
-        }
+    @Test
+    public void toreturnAverageOfAllStudents() {
+        int inputArray[]={25,25,25,25};
+        assertEquals(25,studentGrades.average(inputArray));
+        assertNotEquals(100,studentGrades.average(inputArray));
+    }
+    @Test
+    public void averageExceeded() {
+        int inputArray[]={25,25,101,25};
+        assertNotNull("Null is not Expected!",studentGrades.average(inputArray));
+    }
 
-        @Test
-        public void testForGradeCalculatorFailureWithInvalidInput()
-        {
-            int[] grades = {80,70,60,78, 465767};
-            StudentGrades.Result result = studentGrades.calculateGrades(4,grades);
-            assertEquals(null,result);
-        }
+    @Test
+    public void toReturnLowestValueInStudentMarks() {
+        int inputArray[]={49,33,34,57};
+        assertEquals(33,studentGrades.lowest(inputArray));
+        assertNotEquals(49,studentGrades.lowest(inputArray));
+    }
 
-        @Test
-        public void testForGradeCalculatorFailureWithOutOfRangeInput()
-        {
-            int[] grades = {80,70,60,78,178};
-            StudentGrades.Result result = studentGrades.calculateGrades(4,grades);
-            assertEquals(null,result);
-        }
-
+    @Test
+    public void toReturnHighesttValueInStudentMarks() {
+        int inputArray[]={241,243,2504,294};
+        assertEquals(2504,studentGrades.highest(inputArray));
+        assertNotEquals(294,studentGrades.highest(inputArray));
+    }
 
     }

@@ -3,36 +3,33 @@ package com.stackroute.junitpe2;
 import java.util.Arrays;
 
 public class StudentGrades {
-    public class Result {
-        float average;
-        int minimun;
-        int maximum;
-    }
+    public int average(int arr[])
+    {
+        int sum=0 ;
+        for(int element:arr){
+            sum+=element;
+        }
+        return sum/arr.length;
 
-    public StudentGrades()
+    }
+    public int lowest(int arr[])
+    {
+        int minimum=arr[0] ;
+        for(int element:arr){
+            if(element<minimum)
+                minimum=element;
+        }
+        return minimum;
+
+    }
+    public int highest(int arr[])
     {
 
-    }
-
-    public Result calculateGrades(int number, int[] grades)
-    {
-        Result result = new Result();
-
-        if(number != grades.length)
-        {
-            return null;
+        int maximum=arr[0] ;
+        for(int element:arr){
+            if(element> maximum)
+                maximum=element;
         }
-        for (int grade : grades) {
-            if (grade < 0 || grade > 100) {
-                return null;
-            }
-        }
-
-        result.average = Arrays.stream(grades).sum();
-        Arrays.sort(grades);
-        result.minimun = grades[0];
-        result.maximum = grades[grades.length -1];
-
-        return result;
+        return maximum;
     }
 }

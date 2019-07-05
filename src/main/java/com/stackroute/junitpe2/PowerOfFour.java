@@ -1,6 +1,7 @@
 package com.stackroute.junitpe2;
 
 public class PowerOfFour {
+    // to check given number is power of four or not
     public String isPowerOfFour(int n)
     {
         if(n == 0)
